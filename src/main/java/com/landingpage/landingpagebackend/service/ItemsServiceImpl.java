@@ -55,7 +55,7 @@ public class ItemsServiceImpl {
         }
     
 
-	 @GetMapping(path = {"/get/itemImage/info/{name}"})
+	 @GetMapping(path = {"/get/itemImage/info/{id}"})
 	    public Items getImageDetails(@PathVariable("id") Long id) throws IOException {
 		 
 	        final Optional<Items> dbImage = itemsRepository.findById(id);
@@ -76,7 +76,8 @@ public class ItemsServiceImpl {
 	    public ResponseEntity<byte[]> getImage(@PathVariable("name") String name) throws IOException {
 
 	        final Optional<Items> item = itemsRepository.findByName(name);
-
+	        
+	        
 	        return ResponseEntity
 	                .ok()
 	                .contentType(MediaType.valueOf(item.get().getType()))
