@@ -21,6 +21,8 @@ public class UserServiceImpl implements UserService{
 	UserRepository userRepository;
 	@Autowired
 	PasswordEncoder passwordEncoder;
+	@Autowired
+	UserDTO userDTO;
 	@Override
 	public String addUser(UserDTO userDto) {
 		
@@ -35,7 +37,8 @@ public class UserServiceImpl implements UserService{
 		return user.getUsername();
 	}
 
-	UserDTO userDTO;
+	
+	
 	@Override	
 	public LoginMessage loginUser (UserLoginDTO userLoginDto) {
 		String msg = ""; 
